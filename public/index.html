@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<title>Hello World Program</title>
+<script src="img.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    var socket = io();
+
+    socket.on('update', function (msg) {
+        console.log(msg);
+        let image = document.getElementById("img");
+        image.crossOrigin = "";
+        image.src = msg.url;
+    })
+</script>
+
+<body>
+    <img crossorigin="" id="img" />
+</body>
+
+</html>
